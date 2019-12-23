@@ -31,10 +31,10 @@ namespace ShoppingServer.Bll
                 {
                     result.Add(new CommodityModel
                     {
-                        Id = t.Id,
+                        Id = t.Id.ToString(),
                         Title = t.Title,
                         ImgUrl = t.ImgUrl,
-                        Price = t.Price,
+                        Price = t.Price.ToString(),
                         Stock = t.Sale == t.Total ? "已售罄" : "剩：" + t.Sale.ToString() + "/" + t.Total.ToString()
                     }); ;
                 });
@@ -42,19 +42,20 @@ namespace ShoppingServer.Bll
             return result;
         }
 
-        public bool AddCommondity(CommodityModel model)
+        public BaseResponse AddCommondity(CommodityModel model)
         {
-            var result = _db.Add(new CommodityEntity
+            var result = new BaseResponse();
+            _db.Add(new CommodityEntity
             {
                 Title = model.Title,
                 Describe = model.Describe,
-                Total = model.Total,
-                Price = model.Price,
-                SalePrice = model.SalePrice,
+                Total = Convert.ToInt32(model.Total),
+                Price = Convert.ToDecimal(model.Price),
+                SalePrice = Convert.ToDecimal(model.SalePrice),
                 ImgUrl = model.ImgUrl
             });
             _db.SaveChanges();
-            return true;
+            return result;
         }
     }
 }

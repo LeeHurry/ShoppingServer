@@ -26,11 +26,13 @@ namespace ShoppingServer.Controllers
             return result;
         }
         [HttpPost]
-        public dynamic AddCommondity(CommodityModel model)
+        public BaseResponse AddCommondity(CommodityModel model)
         {
-            var result = false;
+            var result = new BaseResponse();
             result = new MainBll(_db).AddCommondity(model);
             return result;
         }
+        
+        
     }
 }

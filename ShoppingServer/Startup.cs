@@ -30,7 +30,7 @@ namespace ShoppingServer
             services.AddControllers();
             services.AddDbContext<DataContext>(t =>
             {
-                t.UseSqlServer("server=127.0.0.1;User=sa;Password=123321;database=ShoppingServer");
+                t.UseSqlServer("server=122.51.72.85;User=sa;Password=lhr@06951;database=ShoppingServer");
             });
         }
 

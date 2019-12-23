@@ -12,7 +12,7 @@ namespace ShoppingServer.Model.response
         /// <summary>
         /// 主键
         /// </summary>
-        public long Id { get; set; }
+        public string Id { get; set; }
         /// <summary>
         /// 产品标题
         /// </summary>
@@ -20,11 +20,11 @@ namespace ShoppingServer.Model.response
         /// <summary>
         /// 产品价格
         /// </summary>
-        public decimal Price { get; set; }
+        public string Price { get; set; }
         /// <summary>
         /// 销售价
         /// </summary>
-        public decimal SalePrice { get; set; }
+        public string SalePrice { get; set; }
         /// <summary>
         /// 库存
         /// </summary>
@@ -34,6 +34,6 @@ namespace ShoppingServer.Model.response
         /// </summary>
         public string ImgUrl { get; set; }
         public string Describe { get; set; }
-        public int Total { get; set; }
+        public string Total { get; set; }
     }
 }

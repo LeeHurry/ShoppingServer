@@ -36,4 +36,21 @@ namespace ShoppingServer.Model.response
         public string Describe { get; set; }
         public string Total { get; set; }
     }
+
+    /// <summary>
+    /// 瀑布流列表页
+    /// </summary>
+    public class MainCommodityResponse
+    {
+        /// <summary>
+        /// 左侧
+        /// </summary>
+        public List<CommodityModel> LeftList { get; set; }
+        /// <summary>
+        /// 右侧
+        /// </summary>
+        public List<CommodityModel> RightList { get; set; }
+    }
+
+
 }

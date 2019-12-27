@@ -19,14 +19,14 @@ namespace ShoppingServer.Controllers
         {
             _db = dbContext;
         }
-        public dynamic GetCommodityList()
+        public List<CommodityModel> GetCommodityList()
         {
             var result = new List<CommodityModel>();
             result = new MainBll(_db).GetCommodityList();
             return result;
         }
         [HttpPost]
-        public BaseResponse AddCommondity(CommodityModel model)
+        public BaseResponse AddCommodity(CommodityModel model)
         {
             var result = new BaseResponse();
             result = new MainBll(_db).AddCommondity(model);

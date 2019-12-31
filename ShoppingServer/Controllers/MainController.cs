@@ -32,7 +32,34 @@ namespace ShoppingServer.Controllers
             result = new MainBll(_db).AddCommondity(model);
             return result;
         }
-        
-        
+        /// <summary>
+        /// 获取左右瀑布流的列表
+        /// </summary>
+        /// <returns></returns>
+        public MainCommodityResponse GetMainCommodityList()
+        {
+            var res = new MainCommodityResponse() { LeftList = new List<CommodityModel>(), RightList = new List<CommodityModel>() };
+            var list = new MainBll(_db).GetCommodityList();
+            if (list.Any())
+            {
+                var index = 1;
+                list.ForEach(t =>
+                {
+                    if (index == 1)
+                    {
+                        res.LeftList.Add(t);
+                        index = 0;
+                    }
+                    else
+                    {
+                        res.RightList.Add(t);
+                        index = 1;
+                    }
+                });
+            }
+
+            return res;
+        }
+
     }
 }

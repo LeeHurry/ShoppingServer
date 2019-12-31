@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ShoppingServer.Bll;
 using ShoppingServer.Model;
 using ShoppingServer.Model.response;
 
@@ -11,10 +12,10 @@ namespace ShoppingServer.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class CommondityController : ControllerBase
+    public class CommodityController : ControllerBase
     {
         DataContext _db;
-        public CommondityController(DataContext dbContext)
+        public CommodityController(DataContext dbContext)
         {
             _db = dbContext;
         }
@@ -26,5 +27,11 @@ namespace ShoppingServer.Controllers
         //{
 
         //}
+        public CommodityModel GetCommodityDetail(long id)
+        {
+            return new CommodityBll(_db).GetCommodity(id);
+        }
+
+
     }
 }

@@ -26,4 +26,24 @@ namespace ShoppingServer.Model.response
         /// </summary>
         public string Message { get; set; }
     }
+    public class BaseResponse<T>
+    {
+        /// <summary>
+        /// 状态位：10000成功
+        /// </summary>
+        public string Code { get; set; }
+        /// <summary>
+        /// 是否成功
+        /// </summary>
+        public bool IsSuccess { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Message { get; set; }
+        /// <summary>
+        /// 泛型
+        /// </summary>
+        public T Result { get; set; }
+    }
 }

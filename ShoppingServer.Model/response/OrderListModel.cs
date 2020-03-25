@@ -21,8 +21,8 @@ namespace ShoppingServer.Model.response
 
     public class OrderListModel
     {
-        public int OrderId { get; set; }
-        public int CommodityId { get; set; }
+        public long OrderId { get; set; }
+        public long CommodityId { get; set; }
         public string CommodityTitle { get; set; }
 
         public string CommodityPrice { get; set; }
